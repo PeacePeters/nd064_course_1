@@ -2,8 +2,7 @@ name: TechTrends - Package with Docker
 on:
   push:
     branches: [ main ]
-    tags:
-      - 'v*.*.*'
+    
 jobs:
   build:
     runs-on: ubuntu-latest
