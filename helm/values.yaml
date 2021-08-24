@@ -2,11 +2,13 @@ namespace:
   name: sandbox
  
 service:
-  port: 8111
+  port: 4111
+  targetPort: 3111
+  protocol: TCP
   type: ClusterIP
 
 image:
-  repository: techtrends 
+  repository: agilestrategist/techtrends 
   tag: latest
   pullPolicy: IfNotPresent
 
