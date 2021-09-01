@@ -1,13 +1,41 @@
 ## Docker commands used to build the application 
-# TODO: insert the docker build command
 docker build -t techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
 docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+## To retrieve container ID, ancester filter was used to match container based on its image.
+docker logs $(docker ps --filter="ancestor=techtrends" --format='{{ .ID }}')
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+* Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+INFO:werkzeug - - 2021-09-01 00:19:13,768:  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug - - 2021-09-01 00:25:06,106: 172.17.0.1 - - [01/Sep/2021 00:25:06] "GET / HTTP/1.1" 200 -
+INFO:werkzeug - - 2021-09-01 00:25:06,231: 172.17.0.1 - - [01/Sep/2021 00:25:06] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug - - 2021-09-01 00:25:06,307: 172.17.0.1 - - [01/Sep/2021 00:25:06] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app - - 2021-09-01 00:26:06,567: About Us page has been retrieved.
+INFO:werkzeug - - 2021-09-01 00:26:06,582: 172.17.0.1 - - [01/Sep/2021 00:26:06] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug - - 2021-09-01 00:26:15,642: 172.17.0.1 - - [01/Sep/2021 00:26:15] "GET /create HTTP/1.1" 200 -
+INFO:app - - 2021-09-01 00:27:49,437: Article: "Cloud Native Terminology" has been created.
+INFO:werkzeug - - 2021-09-01 00:27:49,443: 172.17.0.1 - - [01/Sep/2021 00:27:49] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug - - 2021-09-01 00:27:49,478: 172.17.0.1 - - [01/Sep/2021 00:27:49] "GET / HTTP/1.1" 200 -
+INFO:app - - 2021-09-01 00:27:58,207: Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug - - 2021-09-01 00:27:58,232: 172.17.0.1 - - [01/Sep/2021 00:27:58] "GET /1 HTTP/1.1" 200 -
+INFO:app - - 2021-09-01 00:28:24,903: Metric endpoint is reached!
+INFO:werkzeug - - 2021-09-01 00:28:24,909: 172.17.0.1 - - [01/Sep/2021 00:28:24] "GET /metrics HTTP/1.1" 200 -
+INFO:werkzeug - - 2021-09-01 00:28:41,733: 172.17.0.1 - - [01/Sep/2021 00:28:41] "GET / HTTP/1.1" 200 -
+ERROR:app - - 2021-09-01 00:28:53,639: Article with id: "12" not found!
+INFO:werkzeug - - 2021-09-01 00:28:53,652: 172.17.0.1 - - [01/Sep/2021 00:28:53] "GET /12 HTTP/1.1" 404 -
+INFO:werkzeug - - 2021-09-01 00:29:00,538: 172.17.0.1 - - [01/Sep/2021 00:29:00] "GET / HTTP/1.1" 200 -
+INFO:app - - 2021-09-01 00:33:31,044: Article "Cloud Native Terminology" retrieved!
+INFO:werkzeug - - 2021-09-01 00:33:31,046: 172.17.0.1 - - [01/Sep/2021 00:33:31] "GET /7 HTTP/1.1" 200 -
+INFO:werkzeug - - 2021-09-01 00:33:37,023: 172.17.0.1 - - [01/Sep/2021 00:33:37] "GET / HTTP/1.1" 200 -
+INFO:app - - 2021-09-01 00:35:41,231: Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug - - 2021-09-01 00:35:41,235: 172.17.0.1 - - [01/Sep/2021 00:35:41] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug - - 2021-09-01 00:36:10,839: 172.17.0.1 - - [01/Sep/2021 00:36:10] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug - - 2021-09-01 00:36:13,228: 172.17.0.1 - - [01/Sep/2021 00:36:13] "GET / HTTP/1.1" 200 -
